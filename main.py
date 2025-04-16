@@ -5,6 +5,7 @@ from trees.avl import build_avl_from_sorted_array
 from measurements.benchmark import run_benchmark
 from measurements.benchmark import save_result_csv
 from plots.plots import plot_height_difference
+from plots.plots import plot_time_difference
 if __name__ == "__main__":
 
     filename = 'saved_measurements.csv'
@@ -13,7 +14,7 @@ if __name__ == "__main__":
         tree.insert(value)
 
     sorted_array = generate_unique_numbers(5, seed=123)
-    sorted_array.sort()  # trzeba posortować dane!
+    sorted_array.sort()  
     avl_root = build_avl_from_sorted_array(sorted_array)
 
     print("Tablica wejściowa:", sorted_array)
@@ -25,4 +26,4 @@ if __name__ == "__main__":
         save_result_csv(result, filename, append=(i != 0))
         print(result)
 
-    plot_height_difference(filename)
+    plot_time_difference(filename)
